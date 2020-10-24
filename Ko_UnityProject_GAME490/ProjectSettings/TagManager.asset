@@ -7,6 +7,8 @@ TagManager:
   - Obstacle
   - StaticBlock
   - DestroyableBlock
+  - MoveCameraBlock
+  - FireStone
   layers:
   - Default
   - TransparentFX
