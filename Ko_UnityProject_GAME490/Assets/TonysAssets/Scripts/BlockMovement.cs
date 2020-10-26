@@ -11,7 +11,7 @@ public class BlockMovement : MonoBehaviour
     left = new Vector3(0, 270, 0),                              //to make the player look left (west)
     currentDirection = Vector3.zero;                            //this will be its default state - the direction it'll face when you start the game
 
-    Vector3 nextBlockPos, destination, direction;
+    Vector3 nextBlockPos, destination, direction, startingPosition;
 
     bool canMoveBlock;                                          //the bool is used to determine when the object can move
 
@@ -31,6 +31,7 @@ public class BlockMovement : MonoBehaviour
         nextBlockPos = Vector3.forward;                         //the next block postion is equal to the object's forward axis (it will move along the direction it is facing)
         destination = transform.position;                       //the point where the object is currenlty at 
         audioSource = GetComponent<AudioSource>();              //sets the audio source variable to the object's audio source component (sets instance)
+        startingPosition = transform.position;
     }
 
     void Update()
@@ -38,10 +39,11 @@ public class BlockMovement : MonoBehaviour
         //MoveBlock();                                          //calls the MoveBlock function stated below - dont use this line, it's just for reference
     }
 
-    public void MoveBlock()
+    public bool MoveBlock()
     {
         transform.position = Vector3.MoveTowards(transform.position, destination, speed /* * Time.deltaTime*/); //when the object starts moving, the object moves from its current position to the destination, **this needs to be refined** , uncheck Time.deltaTime to see what I mean...
-
+        bool valid = false;
+        bool edgeCheck = false;
         if (Input.GetKey(KeyCode.W) && Input.GetKeyDown(KeyCode.LeftShift))                                     //when the specified keys are pressed... (GetKey = hold key down, GetKeyDown = press key)
         {
             Debug.Log("Pushed Block Up");                                                                       //sends a debug message saying in the console (just for debugging purposes)
@@ -80,7 +82,9 @@ public class BlockMovement : MonoBehaviour
 
             if (canMoveBlock)                                                                                                   //if the object can move (if the bool is true)...
             {
-                if (Valid() && EdgeCheck())                                                                                     //if the bool functions below are returned as true...
+                valid = Valid();
+                edgeCheck = EdgeCheck();
+                if (valid && edgeCheck)                                                                                     //if the bool functions below are returned as true...
                 {
                     destination = transform.position + nextBlockPos;                                                            //updates the destination by adding the next position to the object's current position
                     direction = nextBlockPos;
@@ -89,6 +93,8 @@ public class BlockMovement : MonoBehaviour
                 }
             }
         }
+        return (valid && edgeCheck);
+
     }
 
     bool Valid()                                                                                                                //the bool function that checks to see if the next position is valid or not
@@ -128,6 +134,14 @@ public class BlockMovement : MonoBehaviour
             audioSource.PlayOneShot(cantPushCrateSFX);                                                                          //plays an audio clip - the clip cannot be canceled if another is played
         }
         return false;                                                                                                           //if the ray doesnt hit anything, the bool is returned as false
+    }
+
+    // Resets the block to where it originally was placed
+    public void resetPosition()
+    {
+        Debug.Log("Resetting block position");
+        transform.position = startingPosition;
+        Start();
     }
 
 }

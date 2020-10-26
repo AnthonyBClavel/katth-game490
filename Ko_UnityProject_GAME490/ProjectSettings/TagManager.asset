@@ -9,6 +9,7 @@ TagManager:
   - DestroyableBlock
   - MoveCameraBlock
   - FireStone
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
