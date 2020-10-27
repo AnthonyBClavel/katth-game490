@@ -336,8 +336,8 @@ public class KimsTileMovement : MonoBehaviour
 
     private void Footstep()                                                                                                                      //the function that plays the random audio clip
     {
-        //AudioClip clips = GetRandomClip();                                                                                                       //calls the random audio clip function below
-        //audioSource.PlayOneShot(clips);                                                                                                          //plays the audio clip (from start to end - without intturuption) through the object's audio source component
+        AudioClip clips = GetRandomClip();                                                                                                       //calls the random audio clip function below
+        audioSource.PlayOneShot(clips);                                                                                                          //plays the audio clip (from start to end - without intturuption) through the object's audio source component
     }
 
     private AudioClip GetRandomClip()                                                                                                            //the function for getting a random audio clip within the array

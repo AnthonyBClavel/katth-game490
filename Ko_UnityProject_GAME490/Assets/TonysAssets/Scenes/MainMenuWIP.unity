@@ -398,7 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 704b0f289402a7c44a29252b63b380db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: TonyTestScene
+  levelToLoad: UpdatedTestScene
   optionsScreen: {fileID: 832109462}
   loadingScreen: {fileID: 156076154}
   loadingIcon: {fileID: 808817703}
@@ -15221,6 +15221,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 186578810}
+    - target: {fileID: 8233263428880973407, guid: 753c648b521e3204fbaf5e458e40aae4, type: 3}
+      propertyPath: m_MinValue
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233263428977955175, guid: 753c648b521e3204fbaf5e458e40aae4, type: 3}
+      propertyPath: m_MinValue
+      value: -100
+      objectReference: {fileID: 0}
     - target: {fileID: 8233263430373377320, guid: 753c648b521e3204fbaf5e458e40aae4, type: 3}
       propertyPath: m_Name
       value: OptionsScreen
@@ -15308,6 +15316,10 @@ PrefabInstance:
     - target: {fileID: 8233263430373377321, guid: 753c648b521e3204fbaf5e458e40aae4, type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8233263430681715206, guid: 753c648b521e3204fbaf5e458e40aae4, type: 3}
+      propertyPath: m_MinValue
+      value: -100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 753c648b521e3204fbaf5e458e40aae4, type: 3}
