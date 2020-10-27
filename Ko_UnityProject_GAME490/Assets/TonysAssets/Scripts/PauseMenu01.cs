@@ -42,7 +42,7 @@ public class PauseMenu01 : MonoBehaviour
     {
         pauseMenu.SetActive(false);
         isPaused = false;
-        player.GetComponent<TileMovement>().enabled = true;
+        player.GetComponent<KimsTileMovement>().enabled = true;
         Time.timeScale = 1f;
     }
 
@@ -50,7 +50,7 @@ public class PauseMenu01 : MonoBehaviour
     {
         pauseMenu.SetActive(true);
         isPaused = true;
-        player.GetComponent<TileMovement>().enabled = false;
+        player.GetComponent<KimsTileMovement>().enabled = false;
         Time.timeScale = 0f;
     }
 
